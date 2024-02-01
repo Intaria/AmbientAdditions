@@ -1,7 +1,6 @@
 package codyhuh.ambientadditions.common;
 
 import codyhuh.ambientadditions.AmbientAdditions;
-import codyhuh.ambientadditions.common.entities.RubberDuckyIsopod;
 import codyhuh.ambientadditions.common.entities.util.AbstractFrog;
 import codyhuh.ambientadditions.data.SedationData;
 import codyhuh.ambientadditions.data.SedationProvider;
@@ -127,50 +126,6 @@ public class ForgeEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onLogStripped(PlayerInteractEvent.RightClickBlock event) {
-        if (event.getItemStack().getItem() instanceof AxeItem) {
-            Level world = event.getLevel();
-            BlockPos pos = event.getPos();
-            BlockState state = world.getBlockState(pos);
-
-            if (state.is(Blocks.JUNGLE_LOG) && world.random.nextInt(40) == 0) {
-                RubberDuckyIsopod entity = AAEntities.RUBBER_DUCKY_ISOPOD.get().create(world);
-
-                // this is a horrible way to do this, but it works
-                if (world.getBlockState(pos.above()).is(Blocks.AIR)) {
-                    pos = pos.above();
-                }
-                else if (world.getBlockState(pos.below()).is(Blocks.AIR)) {
-                    pos = pos.below();
-                }
-                else if (world.getBlockState(pos.north()).is(Blocks.AIR)) {
-                    pos = pos.north();
-                }
-                else if (world.getBlockState(pos.south()).is(Blocks.AIR)) {
-                    pos = pos.south();
-                }
-                else if (world.getBlockState(pos.east()).is(Blocks.AIR)) {
-                    pos = pos.east();
-                }
-                else if (world.getBlockState(pos.west()).is(Blocks.AIR)) {
-                    pos = pos.west();
-                }
-
-                entity.moveTo(pos.getX() + 0.5F, pos.getY(), pos.getZ() + 0.5F);
-                world.addFreshEntity(entity);
-            }
-
-            if (state.getBlock().defaultBlockState().is(AATags.STRIPPABLE_LOGS) && world.random.nextBoolean()) {
-                ItemStack stack = new ItemStack(AAItems.BARK.get());
-                ItemEntity entity = EntityType.ITEM.create(world);
-
-                entity.setItem(stack);
-                entity.moveTo(pos.getX(), pos.getY(), pos.getZ());
-                world.addFreshEntity(entity);
-            }
-        }
-    }
 
     @SubscribeEvent
     public static void addWanderingTrades(WandererTradesEvent event) {

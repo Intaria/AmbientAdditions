@@ -6,18 +6,13 @@ import codyhuh.ambientadditions.client.model.TextureVariantModel;
 import codyhuh.ambientadditions.client.particles.StunParticle;
 import codyhuh.ambientadditions.client.particles.ZzzParticle;
 import codyhuh.ambientadditions.client.renderer.GenericGeoRenderer;
-import codyhuh.ambientadditions.client.renderer.MataMataRenderer;
-import codyhuh.ambientadditions.client.renderer.item.DartRenderer;
 import codyhuh.ambientadditions.client.renderer.item.DuckyMaskRenderer;
-import codyhuh.ambientadditions.client.renderer.item.YetiFeedersRenderer;
 import codyhuh.ambientadditions.client.renderer.layer.AAGlowingEyesLayer;
 import codyhuh.ambientadditions.client.renderer.layer.CardiganCorgiCollarLayer;
 import codyhuh.ambientadditions.client.renderer.layer.ChameleonBrightnessLayer;
 import codyhuh.ambientadditions.client.renderer.layer.PembrokeCorgiCollarLayer;
 import codyhuh.ambientadditions.common.entities.*;
-import codyhuh.ambientadditions.common.items.CrateItem;
 import codyhuh.ambientadditions.common.items.DuckyMaskItem;
-import codyhuh.ambientadditions.common.items.YetiFeedersItem;
 import codyhuh.ambientadditions.registry.AAEntities;
 import codyhuh.ambientadditions.registry.AAItems;
 import codyhuh.ambientadditions.registry.AAParticles;
@@ -49,10 +44,10 @@ public class ClientEvents {
     public static void clientSetup(FMLClientSetupEvent event) {
         EntityType<?>[] simpleEntities = new EntityType[]{
                 AAEntities.GIANT_LAND_SNAIL.get(), AAEntities.LONGHORN_COWFISH.get(), AAEntities.NINE_BANDED_ARMADILLO.get(),
-                AAEntities.PINK_FAIRY_ARMADILLO.get(), AAEntities.MOUSTACHED_TAMARIN.get(), AAEntities.IIWI.get(), AAEntities.PINOCCHIO_ANOLE.get(),
-                AAEntities.MARTEN.get(), AAEntities.SPIDER_TAILED_ADDER.get(), AAEntities.RABBIT_SNAIL.get(), AAEntities.RING_TAILED_LEMUR.get(),
-                AAEntities.RUBBER_DUCKY_ISOPOD.get(), AAEntities.NAKED_MOLE_RAT.get(), AAEntities.STAG_BEETLE.get(), AAEntities.SHAME_FACED_CRAB.get(),
-                AAEntities.FLYING_FISH.get(), AAEntities.NAPOLEON_WRASSE.get(), AAEntities.OPAH.get(), AAEntities.RED_RIVER_HOG.get(),
+                AAEntities.IIWI.get(), AAEntities.PINOCCHIO_ANOLE.get(),
+                AAEntities.MARTEN.get(), AAEntities.RING_TAILED_LEMUR.get(),
+                AAEntities.STAG_BEETLE.get(), AAEntities.SHAME_FACED_CRAB.get(),
+                AAEntities.FLYING_FISH.get(), AAEntities.NAPOLEON_WRASSE.get(), AAEntities.OPAH.get(),
                 AAEntities.BLUNTHEAD_TREE_SNAKE.get(), AAEntities.BLUE_SPOTTED_STINGRAY.get(), AAEntities.LEAF_FROG_TADPOLE.get(), AAEntities.LEAF_FROG.get(),
 
         };
@@ -148,25 +143,6 @@ public class ClientEvents {
             }
         });
 
-        EntityRenderers.register(AAEntities.YETI_CRAB.get(), (ctx) -> new GenericGeoRenderer<>(ctx, () -> {
-            TextureVariantModel<YetiCrab> model = new TextureVariantModel<>("yeti_crab");
-            model.setTextures((e) -> e.isSheared() ? 1 : 0, Arrays.asList(
-                    new ResourceLocation(AmbientAdditions.MOD_ID, "textures/entity/yeti_crab/yeti_crab.png"),
-                    new ResourceLocation(AmbientAdditions.MOD_ID, "textures/entity/yeti_crab/sheared.png")
-            ));
-            return model;
-        }));
-
-        EntityRenderers.register(AAEntities.PANCAKE_SLUG.get(), (ctx) -> new GenericGeoRenderer<>(ctx, () -> {
-            TextureVariantModel<PancakeSlug> model = new TextureVariantModel<>("pancake_slug");
-            model.setTextures(PancakeSlug::getVariant, Arrays.asList(
-                    new ResourceLocation(AmbientAdditions.MOD_ID, "textures/entity/pancake_slug/pancake_slug_1.png"),
-                    new ResourceLocation(AmbientAdditions.MOD_ID, "textures/entity/pancake_slug/pancake_slug_2.png"),
-                    new ResourceLocation(AmbientAdditions.MOD_ID, "textures/entity/pancake_slug/pancake_slug_3.png")
-            ));
-            return model;
-        }));
-
         EntityRenderers.register(AAEntities.SLOTH_BEAR.get(), (ctx) -> new GenericGeoRenderer<>(ctx, () -> {
             TextureVariantModel<SlothBear> model = new TextureVariantModel<>("sloth_bear");
             model.setTextures((e) -> e.isAngry() ? 1 : 0, Arrays.asList(
@@ -176,16 +152,9 @@ public class ClientEvents {
             return model;
         }));
 
-        EntityRenderers.register(AAEntities.MATA_MATA.get(), MataMataRenderer::new);
-
-        EntityRenderers.register(AAEntities.DART.get(), DartRenderer::new);
-
-        ItemProperties.register(AAItems.CRATE.get(), new ResourceLocation(AmbientAdditions.MOD_ID, "full"), (stack, world, player, i) -> !CrateItem.containsEntity(stack) ? 0.0F : 1.0F);
-
         AmbientAdditions.CALLBACKS.forEach(Runnable::run);
         AmbientAdditions.CALLBACKS.clear();
 
-        GeoArmorRenderer.registerArmorRenderer(YetiFeedersItem.class, YetiFeedersRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(DuckyMaskItem.class, DuckyMaskRenderer::new);
 
     }

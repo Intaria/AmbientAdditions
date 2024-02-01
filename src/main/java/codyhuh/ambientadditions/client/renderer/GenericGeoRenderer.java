@@ -2,7 +2,6 @@ package codyhuh.ambientadditions.client.renderer;
 
 import codyhuh.ambientadditions.AmbientAdditions;
 import codyhuh.ambientadditions.common.entities.ChocolateChipStarfish;
-import codyhuh.ambientadditions.common.entities.RabbitSnail;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -52,10 +51,6 @@ public class GenericGeoRenderer<T extends LivingEntity & IAnimatable> extends Ge
 
 		if (entity instanceof AgeableMob mob && mob.isBaby()) {
 			stack.scale(0.5F, 0.5F, 0.5F);
-		}
-
-		if (entity instanceof RabbitSnail) {
-			stack.translate(0.0F, -0.01F, 0.0F);
 		}
 
 		super.render(entity, entityYaw, partialTicks, stack, bufferIn, packedLightIn);

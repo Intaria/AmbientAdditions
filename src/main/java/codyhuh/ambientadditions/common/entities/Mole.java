@@ -58,7 +58,6 @@ public class Mole extends Animal implements IAnimatable {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.of(AAItems.WORM.get()), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
         this.goalSelector.addGoal(5, this.eatBlockGoal);
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -104,7 +103,8 @@ public class Mole extends Animal implements IAnimatable {
 
     @Override
     public boolean isFood(ItemStack p_70877_1_) {
-        return p_70877_1_.getItem() == AAItems.WORM.get();
+        return false;
+        //return p_70877_1_.getItem() == AAItems.WORM.get();
     }
 
     @Nullable

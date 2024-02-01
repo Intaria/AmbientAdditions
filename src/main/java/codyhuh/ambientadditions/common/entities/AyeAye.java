@@ -30,9 +30,6 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 
 public class AyeAye extends Animal implements IAnimatable {
-
-    private static final Ingredient TEMPTATION_ITEMS = Ingredient.of(AAItems.WORM.get());
-
     public AyeAye(EntityType<? extends Animal> type, Level worldIn) {
         super(type, worldIn);
     }
@@ -41,7 +38,6 @@ public class AyeAye extends Animal implements IAnimatable {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.15D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, TEMPTATION_ITEMS, false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -54,7 +50,8 @@ public class AyeAye extends Animal implements IAnimatable {
 
     @Override
     public boolean isFood(ItemStack stack) {
-        return TEMPTATION_ITEMS.test(stack);
+        return false;
+        //return TEMPTATION_ITEMS.test(stack);
     }
 
     @Nullable

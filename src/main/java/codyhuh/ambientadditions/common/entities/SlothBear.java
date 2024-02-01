@@ -140,7 +140,8 @@ public class SlothBear extends Animal implements IAnimatable, NeutralMob {
 
     @Override
     public boolean isFood(ItemStack p_70877_1_) {
-        return p_70877_1_.getItem() == AAItems.WORM.get();
+        return false;
+        //return p_70877_1_.getItem() == AAItems.WORM.get();
     }
 
     @Nullable
