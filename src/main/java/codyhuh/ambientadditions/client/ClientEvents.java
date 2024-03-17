@@ -8,9 +8,7 @@ import codyhuh.ambientadditions.client.particles.ZzzParticle;
 import codyhuh.ambientadditions.client.renderer.GenericGeoRenderer;
 import codyhuh.ambientadditions.client.renderer.item.DuckyMaskRenderer;
 import codyhuh.ambientadditions.client.renderer.layer.AAGlowingEyesLayer;
-import codyhuh.ambientadditions.client.renderer.layer.CardiganCorgiCollarLayer;
 import codyhuh.ambientadditions.client.renderer.layer.ChameleonBrightnessLayer;
-import codyhuh.ambientadditions.client.renderer.layer.PembrokeCorgiCollarLayer;
 import codyhuh.ambientadditions.common.entities.*;
 import codyhuh.ambientadditions.common.items.DuckyMaskItem;
 import codyhuh.ambientadditions.registry.AAEntities;
@@ -54,19 +52,6 @@ public class ClientEvents {
         for (EntityType<?> type : simpleEntities) {
             make(type, type.getDescriptionId().substring("entity.ambientadditions.".length()));
         }
-
-        EntityRenderers.register(AAEntities.PEMBROKE_CORGI.get(), (ctx) -> {
-            GenericGeoRenderer<PembrokeCorgi> render = new GenericGeoRenderer<>(ctx, () -> new GenericGeoModel<>("pembroke_corgi"));
-            render.addLayer(new PembrokeCorgiCollarLayer(render));
-            return render;
-        });
-
-
-        EntityRenderers.register(AAEntities.CARDIGAN_CORGI.get(), (ctx) -> {
-            GenericGeoRenderer<CardiganCorgi> render = new GenericGeoRenderer<>(ctx, () -> new GenericGeoModel<>("cardigan_corgi"));
-            render.addLayer(new CardiganCorgiCollarLayer(render));
-            return render;
-        });
 
         EntityRenderers.register(AAEntities.AYE_AYE.get(), (ctx) -> {
             GenericGeoRenderer<AyeAye> render = new GenericGeoRenderer<>(ctx, () -> new GenericGeoModel<>("aye_aye"));

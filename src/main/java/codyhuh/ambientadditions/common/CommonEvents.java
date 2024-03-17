@@ -27,8 +27,6 @@ public class CommonEvents {
         event.put(AAEntities.NINE_BANDED_ARMADILLO.get(), NineBandedArmadillo.createAttributes().build());
         event.put(AAEntities.VEILED_CHAMELEON.get(), VeiledChameleon.createAttributes().build());
         event.put(AAEntities.MOLE.get(), Mole.createAttributes().build());
-        event.put(AAEntities.PEMBROKE_CORGI.get(), PembrokeCorgi.createAttributes().build());
-        event.put(AAEntities.CARDIGAN_CORGI.get(), CardiganCorgi.createAttributes().build());
         event.put(AAEntities.NAPOLEON_WRASSE.get(), NapoleonWrasse.createAttributes().build());
         event.put(AAEntities.IIWI.get(), Iiwi.createAttributes().build());
         event.put(AAEntities.PINOCCHIO_ANOLE.get(), PinocchioAnole.createAttributes().build());
@@ -58,7 +56,6 @@ public class CommonEvents {
         e.register(AAEntities.NINE_BANDED_ARMADILLO.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, NineBandedArmadillo::checkSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         e.register(AAEntities.VEILED_CHAMELEON.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, VeiledChameleon::checkChameleonSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         e.register(AAEntities.MOLE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mole::checkMoleSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
-        e.register(AAEntities.PEMBROKE_CORGI.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         e.register(AAEntities.NAPOLEON_WRASSE.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         e.register(AAEntities.IIWI.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, Iiwi::checkHoneycreeperSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         e.register(AAEntities.PINOCCHIO_ANOLE.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, PinocchioAnole::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);

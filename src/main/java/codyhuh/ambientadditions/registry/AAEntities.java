@@ -19,8 +19,6 @@ public class AAEntities {
     public static final RegistryObject<EntityType<NineBandedArmadillo>> NINE_BANDED_ARMADILLO = create("nine_banded_armadillo", EntityType.Builder.of(NineBandedArmadillo::new, MobCategory.CREATURE).sized(0.65f, 0.45f));
     public static final RegistryObject<EntityType<VeiledChameleon>> VEILED_CHAMELEON = create("veiled_chameleon", EntityType.Builder.of(VeiledChameleon::new, MobCategory.CREATURE).sized(0.65f, 0.55f));
     public static final RegistryObject<EntityType<Mole>> MOLE = create("mole", EntityType.Builder.of(Mole::new, MobCategory.CREATURE).sized(0.55f, 0.35f));
-    public static final RegistryObject<EntityType<PembrokeCorgi>> PEMBROKE_CORGI = create("pembroke_corgi", EntityType.Builder.of(PembrokeCorgi::new, MobCategory.CREATURE).sized(0.65f, 0.55f));
-    public static final RegistryObject<EntityType<CardiganCorgi>> CARDIGAN_CORGI = create("cardigan_corgi", EntityType.Builder.of(CardiganCorgi::new, MobCategory.CREATURE).sized(0.7f, 0.6f));
     public static final RegistryObject<EntityType<NapoleonWrasse>> NAPOLEON_WRASSE = create("napoleon_wrasse", EntityType.Builder.of(NapoleonWrasse::new, MobCategory.WATER_CREATURE).sized(0.9f, 0.6f));
     public static final RegistryObject<EntityType<Iiwi>> IIWI = create("iiwi", EntityType.Builder.of(Iiwi::new, MobCategory.CREATURE).sized(0.4f, 0.55f));
     public static final RegistryObject<EntityType<PinocchioAnole>> PINOCCHIO_ANOLE = create("pinocchio_anole", EntityType.Builder.of(PinocchioAnole::new, MobCategory.CREATURE).sized(0.4f, 0.25f));

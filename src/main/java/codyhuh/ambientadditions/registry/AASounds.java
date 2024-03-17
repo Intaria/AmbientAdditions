@@ -14,8 +14,6 @@ public class AASounds {
     public static final RegistryObject<SoundEvent> ARMADILLO_HURT = create("armadillo.hurt");
     public static final RegistryObject<SoundEvent> ARMADILLO_AMBIENT = create("armadillo.ambient");
 
-    public static final RegistryObject<SoundEvent> CORGI_AMBIENT = create("corgi.ambient");
-
     public static final RegistryObject<SoundEvent> RAT_DEATH = create("rat.death");
     public static final RegistryObject<SoundEvent> RAT_HURT = create("rat.hurt");
     public static final RegistryObject<SoundEvent> RAT_AMBIENT = create("rat.ambient");
